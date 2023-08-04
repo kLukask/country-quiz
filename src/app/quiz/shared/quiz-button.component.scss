@@ -15,9 +15,13 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border-radius: 12px;
-  padding: pxToRem(16px) pxToRem(20px);
+  padding: pxToRem(8px) pxToRem(20px);
   outline: none;
   border: 2px solid $--clr-primary-200;
+
+  @include respond-to(sm) {
+    padding: pxToRem(16px) pxToRem(20px);
+  }
 
   .quiz-button__question-answer {
     margin-left: pxToRem(24px);

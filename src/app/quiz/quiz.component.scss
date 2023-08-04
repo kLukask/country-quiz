@@ -44,7 +44,6 @@
     .quiz__question-flag {
       width: 84px;
       height: 54px;
-      margin-bottom: 28px;
     }
 
     .quiz__body {
@@ -66,6 +65,7 @@
         color: $--clr-primary-100;
         font-size: pxToRem(18px);
         font-weight: $--fw-bold;
+        margin-top: pxToRem(28px);
 
         @include respond-to("sm") {
           font-size: pxToRem(24px);
