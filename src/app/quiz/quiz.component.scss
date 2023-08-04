@@ -48,7 +48,6 @@
     }
 
     .quiz__body {
-      min-height: pxToRem(515px);
       width: 100%;
       background-color: $--clr-neutral;
       border-radius: 24px;
@@ -76,8 +75,13 @@
       .quiz__button-selection {
         display: flex;
         flex-flow: row wrap;
-        row-gap: pxToRem(25px);
-        margin-top: pxToRem(32px);
+        row-gap: pxToRem(10px);
+        margin-top: pxToRem(16px);
+
+        @include respond-to("sm") {
+          column-gap: pxToRem(25px);
+          margin-top: pxToRem(32px);
+        }
 
         &.quiz__button-selection--question-answered {
           pointer-events: none;
