@@ -1,0 +1,14 @@
+<button class="quiz-button" [ngClass]="buttonState">
+  <p class="quiz-button__question-choice">
+    {{ questionChoice }}
+  </p>
+  <p class="quiz-button__question-answer">
+    {{ questionAnswer }}
+  </p>
+  <img
+    *ngIf="buttonState !== ''"
+    class="quiz-button__icon"
+    [src]="buttonState === 'correct' ? 'assets/tick.svg' : 'assets/cross.svg'"
+    alt="answer icon"
+  />
+</button>

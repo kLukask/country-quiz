@@ -1,0 +1,69 @@
+<div class="quiz">
+  <section class="quiz__container">
+    <h1 class="quiz__title">Country quiz</h1>
+    <ng-container
+      [ngTemplateOutlet]="showResults ? resultsSection : quizSection"
+    ></ng-container>
+  </section>
+</div>
+
+<ng-template #quizSection>
+  <div
+    class="quiz__body"
+    [class.quiz__body--question-answered]="questionAnswered"
+  >
+    <img class="quiz__question-body-image" src="assets/adventure.svg" alt="" />
+    <ng-container *ngFor="let question of quizQuestions; let i = index">
+      <ng-container *ngIf="currentQuestion === i">
+        <img
+          class="quiz__question-flag"
+          *ngIf="question.flag"
+          [src]="question.flag"
+          alt="country flag"
+        />
+        <p class="quiz__question-text">
+          {{ question.question }}
+        </p>
+        <div
+          class="quiz__button-selection"
+          [class.quiz__button-selection--question-answered]="questionAnswered"
+        >
+          <app-quiz-button
+            *ngFor="let choice of question.choices; let i = index"
+            [questionAnswer]="choice"
+            [questionChoice]="i | questionChoice"
+            [buttonState]="
+              questionAnswered && question.answer === choice
+                ? 'correct'
+                : questionAnswered && selectedAnswer === choice
+                ? 'incorrect'
+                : ''
+            "
+            (click)="onQuestionAnswered(choice)"
+          ></app-quiz-button>
+        </div>
+      </ng-container>
+    </ng-container>
+    <button
+      *ngIf="questionAnswered"
+      class="quiz__next-button"
+      (click)="nextQuestion()"
+    >
+      Next
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #resultsSection>
+  <div class="quiz__body quiz__body--results">
+    <img class="quiz__results-body-image" src="assets/winners.svg" alt="" />
+    <h1 class="quiz__results-title">Results</h1>
+    <p class="quiz__total-answers">
+      You got <span class="text-highlight">{{ correctAnswers }}</span> correct
+      answers
+    </p>
+    <button class="quiz__try-again-button" (click)="resetGame()">
+      Play again
+    </button>
+  </div>
+</ng-template>

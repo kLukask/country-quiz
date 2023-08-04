@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://api.fonts.coollabs.io/css2?family=Poppins:wght@400;500;600;800&display=swap");
+@import "_variables";
+
+/**
+ CSS RESET
+/*
+
+/* Set core body defaults */
+body {
+  height: 100vh;
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: $--ff-primary;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
